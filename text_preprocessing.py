@@ -67,7 +67,6 @@ df['reviewText'] = df['reviewText'].str.replace(r'\d', '',regex=True)
 # stopwords (bağlaç veya zamir gibi olçum değeri olmayan ifadeler örneğin: for, the, of vb. [sw] )
 #############################
 
-# import nltk kütüphanesinin içinde stopworda kelimelerin olduğu bir yerdir
 #nltk.download('stopwords')
 
 sw = stopwords.words('english')
@@ -97,7 +96,7 @@ df['reviewText'] = df['reviewText'].apply(lambda x: " ".join(x for x in str(x).s
 
 
 #############################
-# Lemmatization (Kelimeleri köklerine ayırma işlemidir. Takıları kaldırma) (stemming de vardır )
+# Lemmatization (Kelimeleri köklerine ayırma işlemidir.) (stemming de vardır )
 
 #nltk.download("wordnet")
 
@@ -281,7 +280,7 @@ log_model = LogisticRegression().fit(S_tf_idf_word,Z)
 a=cross_val_score ( log_model,S_tf_idf_word,Z ,scoring="accuracy",cv=5).mean()
 print(a)
 
-# >> 0.830111902339776 %80 DOĞRU TAHMİN YAPACAĞIZ
+# >> 0.830111902339776 %83 DOĞRU TAHMİN YAPILACAK
 
 
 new_review = pd.Series("this product is great")
